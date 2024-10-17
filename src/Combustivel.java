@@ -1,4 +1,4 @@
-public class Combustivel {
+public class Combustivel { //teste
     private String nome;
     private double precoCompra;
     private double precoVenda;
