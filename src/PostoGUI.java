@@ -18,53 +18,52 @@ public class PostoGUI extends JFrame {
         posto.adicionarCombustivel("Diesel", 4.00, 5.00, 800);
 
         setTitle("Posto de Combustível");
-        setSize(400, 300);
+        setSize(600, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
 
         JButton btnComprar = new JButton("Comprar Combustível");
         btnComprar.setBounds(50, 50, 150, 30);
-        add(btnComprar);
 
         JButton btnVender = new JButton("Vender Combustível");
-        btnVender.setBounds(50, 100, 150, 30);
-        add(btnVender);
+        btnVender.setBounds(220, 50, 150, 30);
 
-        JButton btnMostrarEstoque = new JButton("Mostrar Estoque");
-        btnMostrarEstoque.setBounds(50, 150, 150, 30);
+        JButton btnMostrarEstoque = new JButton("Relatório");
+        btnMostrarEstoque.setBounds(390, 50, 150, 30);
+
+        add(btnComprar);
+        add(btnVender);
         add(btnMostrarEstoque);
 
-        txtAreaEstoque = new JTextArea();
-        txtAreaEstoque.setBounds(220, 50, 150, 150);
-        add(txtAreaEstoque);
 
         btnComprar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nomeCombustivel = JOptionPane.showInputDialog("Digite o nome do combustível:");
-                double quantidade = Double.parseDouble(JOptionPane.showInputDialog("Digite a quantidade:"));
-                posto.comprarCombustivel(nomeCombustivel, quantidade);
+        //         String nomeCombustivel = JOptionPane.showInputDialog("Digite o nome do combustível:");
+        //         double quantidade = Double.parseDouble(JOptionPane.showInputDialog("Digite a quantidade:"));
+        //         posto.comprarCombustivel(nomeCombustivel, quantidade);
             }
         });
 
         btnVender.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nomeCombustivel = JOptionPane.showInputDialog("Digite o nome do combustível:");
-                double quantidade = Double.parseDouble(JOptionPane.showInputDialog("Digite a quantidade:"));
-                posto.venderCombustivel(nomeCombustivel, quantidade);
+        //         String nomeCombustivel = JOptionPane.showInputDialog("Digite o nome do combustível:");
+        //         double quantidade = Double.parseDouble(JOptionPane.showInputDialog("Digite a quantidade:"));
+        //         posto.venderCombustivel(nomeCombustivel, quantidade);
             }
         });
 
         btnMostrarEstoque.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                txtAreaEstoque.setText("");
-                for (String nome : new String[]{"Gasolina", "Álcool", "Diesel"}) {
-                    txtAreaEstoque.append(nome + ": " + posto.combustiveis.get(nome).getEstoque() + " litros\n");
-                }
+        //         txtAreaEstoque.setText("");
+        //         for (String nome : new String[]{"Gasolina", "Álcool", "Diesel"}) {
+        //             txtAreaEstoque.append(nome + ": " + posto.combustiveis.get(nome).getEstoque() + " litros\n");
+        //         }
             }
         });
+        
     }
 
     public static void main(String[] args) {
