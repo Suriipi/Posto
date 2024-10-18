@@ -39,6 +39,7 @@ public class PostoGUI extends JFrame {
         btnComprar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            
         //         String nomeCombustivel = JOptionPane.showInputDialog("Digite o nome do combustível:");
         //         double quantidade = Double.parseDouble(JOptionPane.showInputDialog("Digite a quantidade:"));
         //         posto.comprarCombustivel(nomeCombustivel, quantidade);
