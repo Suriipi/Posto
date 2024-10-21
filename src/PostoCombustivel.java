@@ -3,7 +3,7 @@ import java.util.Map;
 
 public class PostoCombustivel {
     private double saldoCaixa;
-    Map<String, Combustivel> combustiveis;
+    private Map<String, Combustivel> combustiveis;
 
     public PostoCombustivel(double saldoInicial) {
         this.saldoCaixa = saldoInicial;
@@ -12,6 +12,10 @@ public class PostoCombustivel {
 
     public void adicionarCombustivel(String nome, double precoCompra, double precoVenda, double estoque) {
         combustiveis.put(nome, new Combustivel(nome, precoCompra, precoVenda, estoque));
+    }
+
+    public Combustivel getCombustivel(String nome) {
+        return combustiveis.get(nome);  // Novo método que retorna o combustível pelo nome
     }
 
     public void comprarCombustivel(String nome, double quantidade) {
@@ -26,13 +30,15 @@ public class PostoCombustivel {
         }
     }
 
-    public void venderCombustivel(String nome, double quantidade) {
+    public boolean venderCombustivel(String nome, double quantidade) {
         Combustivel combustivel = combustiveis.get(nome);
         if (combustivel.vender(quantidade)) {
             saldoCaixa += combustivel.getPrecoVenda() * quantidade;
             System.out.println("Venda de " + nome + " realizada.");
+            return true;
         } else {
             System.out.println("Estoque insuficiente de " + nome);
+            return false;
         }
     }
 
