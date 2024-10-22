@@ -18,15 +18,17 @@ public class PostoCombustivel {
         return combustiveis.get(nome);  // Novo método que retorna o combustível pelo nome
     }
 
-    public void comprarCombustivel(String nome, double quantidade) {
+    public boolean comprarCombustivel(String nome, double quantidade) {
         Combustivel combustivel = combustiveis.get(nome);
         double custoTotal = combustivel.getPrecoCompra() * quantidade;
         if (saldoCaixa >= custoTotal) {
             saldoCaixa -= custoTotal;
             combustivel.comprar(quantidade, custoTotal);
             System.out.println("Compra de " + nome + " realizada.");
+            return true;
         } else {
             System.out.println("Saldo insuficiente para comprar " + nome);
+            return false;
         }
     }
 

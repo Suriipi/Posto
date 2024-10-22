@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 
 public class PostoGUI extends JFrame {
     private static final long serialVersionUID = 1L;
-    private PostoCombustivel posto;
+    static PostoCombustivel posto;
 
     public PostoGUI() {
         posto = new PostoCombustivel(10000);
@@ -21,6 +21,14 @@ public class PostoGUI extends JFrame {
         JButton btnComprar = new JButton("Comprar Combustível");
         btnComprar.setBounds(50, 50, 150, 30);
         add(btnComprar);
+        
+        btnComprar.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ComprarCombustivelGUI(); 
+            }
+        });
+
 
         // Botão para Vender Combustível
         JButton btnVender = new JButton("Vender Combustível");
@@ -31,6 +39,7 @@ public class PostoGUI extends JFrame {
         JButton btnMostrarEstoque = new JButton("Relatório");
         btnMostrarEstoque.setBounds(390, 50, 150, 30);
         add(btnMostrarEstoque);
+        
 
         // Ação do botão "Vender Combustível"
         btnVender.addActionListener(new ActionListener() {
