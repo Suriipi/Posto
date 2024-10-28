@@ -16,7 +16,7 @@ public class ComprarCombustivelGUI extends JPanel {
   
   
         // Criação do JFrame
-        JFrame telaCompra = new JFrame("Venda de Combustível");
+        JFrame telaCompra = new JFrame("Compra de Combustível");
         telaCompra.setSize(400, 600);
         telaCompra.setLayout(null);
         telaCompra.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -53,7 +53,6 @@ public class ComprarCombustivelGUI extends JPanel {
 
         // Torna a janela visível
         telaCompra.setVisible(true);
-
 
 
         btnConfirmar.addActionListener(  new ActionListener() {

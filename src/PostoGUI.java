@@ -19,7 +19,7 @@ public class PostoGUI extends JFrame {
 
         // Botão para Comprar Combustível (implementação futura)
         JButton btnComprar = new JButton("Comprar Combustível");
-        btnComprar.setBounds(50, 50, 150, 30);
+        btnComprar.setBounds(50, 50, 170, 30);
         add(btnComprar);
         
         btnComprar.addActionListener( new ActionListener() {
@@ -28,18 +28,23 @@ public class PostoGUI extends JFrame {
                 new ComprarCombustivelGUI(); 
             }
         });
-
+        
+        //Botão Relatórios
+        JButton btnRelatorios = new JButton("Relatórios");
+        btnRelatorios.setBounds(400, 50, 170, 30);
+        add(btnRelatorios);
+        
+        btnRelatorios.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RelatoriosGUI(); 
+            }
+        });
 
         // Botão para Vender Combustível
         JButton btnVender = new JButton("Vender Combustível");
-        btnVender.setBounds(220, 50, 150, 30);
+        btnVender.setBounds(240, 50, 150, 30);
         add(btnVender);
-
-        // Botão para mostrar o Relatório de Estoque
-        JButton btnMostrarEstoque = new JButton("Relatório");
-        btnMostrarEstoque.setBounds(390, 50, 150, 30);
-        add(btnMostrarEstoque);
-        
 
         // Ação do botão "Vender Combustível"
         btnVender.addActionListener(new ActionListener() {
@@ -48,23 +53,9 @@ public class PostoGUI extends JFrame {
                 // Abre uma nova janela para vender combustível
                 abrirTelaVenda();
             }
-        });
+        });};
 
-        // Ação do botão "Relatório"
-        btnMostrarEstoque.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame telaRelatorio = new JFrame("Relatório de Estoque");
-                telaRelatorio.setSize(300, 200);
-                JTextArea txtEstoque = new JTextArea();
-                txtEstoque.setBounds(20, 20, 250, 120);
-                txtEstoque.setEditable(false);
-                atualizarEstoque(txtEstoque);
-                telaRelatorio.add(txtEstoque);
-                telaRelatorio.setVisible(true);
-            }
-        });
-    }
+
 
     private void abrirTelaVenda() {
         // Cria a nova tela
@@ -140,4 +131,3 @@ public class PostoGUI extends JFrame {
         });
     }
 }
-
