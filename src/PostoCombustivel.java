@@ -3,7 +3,7 @@ import java.util.Map;
 
 public class PostoCombustivel {
     private double saldoCaixa;
-    Map<String, Combustivel> combustiveis;
+    private Map<String, Combustivel> combustiveis;
 
     public PostoCombustivel(double saldoInicial) {
         this.saldoCaixa = saldoInicial;
@@ -14,25 +14,33 @@ public class PostoCombustivel {
         combustiveis.put(nome, new Combustivel(nome, precoCompra, precoVenda, estoque));
     }
 
-    public void comprarCombustivel(String nome, double quantidade) {
+    public Combustivel getCombustivel(String nome) {
+        return combustiveis.get(nome);  // Novo método que retorna o combustível pelo nome
+    }
+
+    public boolean comprarCombustivel(String nome, double quantidade) {
         Combustivel combustivel = combustiveis.get(nome);
         double custoTotal = combustivel.getPrecoCompra() * quantidade;
         if (saldoCaixa >= custoTotal) {
             saldoCaixa -= custoTotal;
             combustivel.comprar(quantidade, custoTotal);
             System.out.println("Compra de " + nome + " realizada.");
+            return true;
         } else {
             System.out.println("Saldo insuficiente para comprar " + nome);
+            return false;
         }
     }
 
-    public void venderCombustivel(String nome, double quantidade) {
+    public boolean venderCombustivel(String nome, double quantidade) {
         Combustivel combustivel = combustiveis.get(nome);
         if (combustivel.vender(quantidade)) {
             saldoCaixa += combustivel.getPrecoVenda() * quantidade;
             System.out.println("Venda de " + nome + " realizada.");
+            return true;
         } else {
             System.out.println("Estoque insuficiente de " + nome);
+            return false;
         }
     }
 
